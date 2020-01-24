@@ -1,6 +1,10 @@
+import './style.scss';
+import HtmlTempleteRenderer from './template/'
+
 class Init{
     constructor(){
-        console.log('olá mundo')
+        const template =HtmlTempleteRenderer;
+        template.loadTemplate();
     }
 }
 

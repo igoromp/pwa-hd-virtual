@@ -1,0 +1,37 @@
+body {
+    background-color: #cecece;
+
+    #header{
+        width: 100%;
+        position: fixed;
+        z-index: 99999;
+        background-color: #FFF;
+        border-bottom: 1px solid rgba(0,0,0,.57);
+    }
+
+    #sidebar {
+        width:20% ;
+        height: 100%;
+        position: fixed;
+        margin-top: 40px;
+        border-right: 1px solid rgba(0,0,0,.57);
+        border-top: 1px solid rgba(0,0,0,.57);
+
+        .aside-wrapper{
+            margin-top: 15px;
+            margin-left: 15px;
+        }
+    }
+
+    #content {
+        width: 79%;
+        margin-left: 21%;
+        z-index: -9999;
+        position: relative;
+        top:40px;
+
+        section{
+            padding-top: 15px;
+        }
+    }
+}
