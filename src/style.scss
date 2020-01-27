@@ -1,6 +1,21 @@
 body {
     background-color: #cecece;
 
+    .ui.form input:not([type]),
+    .ui.form input[type=date],
+    .ui.form input[type=datetime-local],
+    .ui.form input[type=email],
+    .ui.form input[type=file],
+    .ui.form input[type=number], 
+    .ui.form input[type=password], 
+    .ui.form input[type=search], 
+    .ui.form input[type=tel], 
+    .ui.form input[type=text], 
+    .ui.form input[type=time], 
+    .ui.form input[type=url] {
+        border: 1px solid rgba(34, 36, 38, 0.35);
+    }
+
     #header{
         width: 100%;
         position: fixed;
@@ -10,28 +25,60 @@ body {
     }
 
     #sidebar {
-        width:20% ;
-        height: 100%;
+        &.slider_active{
+            width:20%;
+            height: 100%;
+            margin-left: 0;
+            
+        }
+        &.slider_desactive{
+            width:20%;
+            margin-left: -20%;
+            height: 100%;
+        }
         position: fixed;
         margin-top: 40px;
         border-right: 1px solid rgba(0,0,0,.57);
         border-top: 1px solid rgba(0,0,0,.57);
-
+        background-color: #FFF;
+        color: #353535;
+        display: block;
+        
         .aside-wrapper{
             margin-top: 15px;
             margin-left: 15px;
+            margin-right: 10px;
+            .ui.progress{
+                background: rgba(0,0,0,.18);
+            }            
+            .section-aside{
+                margin-top:20px;
+            }
         }
     }
 
     #content {
-        width: 79%;
-        margin-left: 21%;
-        z-index: -9999;
+        min-height: 100%;
         position: relative;
         top:40px;
+        padding-right:10px ;
+        padding-left:10px ;
+        &.slider_active{
+            width: 79%;
+            margin-left: 20%;
+        }
+        &.slider_desactive{
+            
+            width: 100%;  
+        }
 
         section{
             padding-top: 15px;
         }
+    }
+
+    .slider_active,
+    .slider_desactive{
+        transition: margin-left 0.5s ease-in;
     }
 }

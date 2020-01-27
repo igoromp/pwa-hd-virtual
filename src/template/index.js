@@ -4,6 +4,8 @@ import sidebar from './sidebar.html';
 import header from './header.html'
 import footer from './footer.html';
 import content from './content.html';
+import htmlUtil from '../utils/html-elements-util'
+import templateConfig from './templates-configuration/template-config';
 
 
 class HtmlTempleteRenderer{
@@ -16,10 +18,21 @@ class HtmlTempleteRenderer{
 
     loadTemplate() {
         console.log('**************** Renderer Template Application ****************')
-        document.getElementById('header').innerHTML = this.header;
-        document.getElementById('sidebar').innerHTML= this.sidebar;
-        document.getElementById('content').innerHTML = this.content;
-        document.getElementById('footer').innerHTML = this.footer;
+        const {byId} = htmlUtil;
+        byId('header').innerHTML = this.header;
+        byId('sidebar').innerHTML= this.sidebar;
+        byId('content').innerHTML = this.content;
+        byId('footer').innerHTML = this.footer;
+
+        const btnDashboard = byId("dashboard-toggle");
+        btnDashboard.addEventListener('click',(e)=>{
+            const sidebar = byId('sidebar');
+            const content = byId('content');
+            
+            templateConfig[sidebar.className](sidebar);
+            templateConfig[content.className](content);
+            console.log("Toggle", sidebar.className);
+        })
     }
 }
 
